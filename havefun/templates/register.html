@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'havefun/bootstrap.min.css' %}" />
+<div class="container">
+<div class='col-md-10'>
+    <form action= "" method="post"  role="form">
+
+        {%  csrf_token%}
+        {%for field in form%}
+
+            <div class="form-group">
+                <label for='{{ field.id_for_label }}'>{{field.label}}</label>
+                
+                    {#<input type='text' class="form-control" id='{{field.id_for_label}}'> #}
+                    
+                {{field}}
+                <span class="help-block"> {{field.errors}}</span>
+            </div>
+
+            
+        {%endfor%}
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+
+
+
+
+</div>
+</div>
+
+</html>
